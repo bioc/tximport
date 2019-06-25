@@ -38,6 +38,17 @@ readAlevinPreV014 <- function(files) {
 
 readAlevin <- function(files) {
   dir <- sub("/alevin$","",dirname(files))
+
+  # a little code to catch this case:
+  # we can't import infReps in Alevin >= 0.14 in tximport v1.12
+  if (!requireNamespace("jsonlite", quietly=TRUE)) {
+    stop("importing Alevin requires package `jsonlite`")
+  }
+  jsonPath <- file.path(dir, "cmd_info.json")
+  cmd_info <- jsonlite::fromJSON(jsonPath)
+  if ("numCellBootstraps" %in% names(cmd_info))
+    stop("tximport 1.12 cannot import bootstraps from Alevin version >= 0.14, use newer tximport")
+  
   barcode.file <- file.path(dir, "alevin/quants_mat_rows.txt")
   gene.file <- file.path(dir, "alevin/quants_mat_cols.txt")
   matrix.file <- file.path(dir, "alevin/quants_mat.gz")

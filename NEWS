@@ -1,3 +1,9 @@
+CHANGES IN VERSION 1.12.3
+-------------------------
+
+    o Add code to throw error for Alevin v0.14 and boostrap reps.
+      This data import will require tximport v1.13 (devel branch).
+
 CHANGES IN VERSION 1.12.2
 -------------------------
 
