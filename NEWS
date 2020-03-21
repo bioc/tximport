@@ -1,5 +1,12 @@
+CHANGES IN VERSION 1.14.1
+-------------------------
+
+    o Fixed bug where the bootstrap matrices from alevin were
+      not aligned by cell with the counts matrix. This affected the
+      variance and the infReps list.
+
 CHANGES IN VERSION 1.14.0
---------------------------
+-------------------------
 
     o Alevin count and inferential variance can be imported now 
       ~40x faster for large number of cells, leveraging C++ code
