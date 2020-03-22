@@ -2,10 +2,10 @@ context("alevin")
 test_that("import alevin works", {
 
   dir <- system.file("extdata", package="tximportData")
-  files <- file.path(dir,"alevin/neurons_900_v012/alevin/quants_mat.gz")
-  file.exists(files)
+  #files <- file.path(dir,"alevin/neurons_900_v012/alevin/quants_mat.gz")
+  #file.exists(files)
 
-  txi <- tximport(files, type="alevin")
+  #txi <- tximport(files, type="alevin")
 
   dir <- system.file("extdata", package="tximportData")
   files <- file.path(dir,"alevin/neurons_900_v014/alevin/quants_mat.gz")
@@ -31,9 +31,9 @@ test_that("import alevin works", {
   expect_true(max(abs(mat - unname(cts))) < 1e-6)
 
   # again import alevin without fishpond
-  txi <- tximport(files, type="alevin", dropInfReps=TRUE, forceSlow=TRUE)
-  idx <- 1:1000 
-  cts <- unname(as.matrix(txi$counts[idx,]))
-  expect_true(max(abs(mat - unname(cts))) < 1e-6)
+  #txi <- tximport(files, type="alevin", dropInfReps=TRUE, forceSlow=TRUE)
+  #idx <- 1:1000 
+  #cts <- unname(as.matrix(txi$counts[idx,]))
+  #expect_true(max(abs(mat - unname(cts))) < 1e-6)
   
 })
