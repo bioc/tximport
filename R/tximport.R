@@ -556,6 +556,7 @@ txOut=TRUE, CFA either 'no' or 'scaledTPM', and no inferential replicates")
       abundanceMatTx <- Matrix::sparseMatrix(i=unlist(countsListI),
                                              j=rep(seq_along(numNonzero), numNonzero),
                                              x=unlist(abundanceListX),
+                                             dims=c(length(txId),length(files)),
                                              dimnames=list(txId, names(files)))
     } else {
       abundanceMatTx <- NULL
